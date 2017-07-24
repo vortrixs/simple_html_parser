@@ -26,7 +26,7 @@ $data = [
                 $html = new Parser('content.php', $data);
                 echo $html->render();
             } catch (Exception $e) {
-                echo $e;
+                echo $e->getMessage();
             }
         ?>
     </body>
