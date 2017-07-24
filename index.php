@@ -5,12 +5,12 @@
  */
 
 $data = [
-    'title' => 'this is the title',
+    'title'        => 'this is the title',
     'subtitle_one' => 'this is the first subtitle',
-    'content_one' => 'this is the first paragraph',
+    'content_one'  => 'this is the first paragraph',
     'subtitle_two' => 'this is the second subtitle',
-    'content_two' => 'this is the second paragraph',
-    'footer' => 'this is the footer',
+    'content_two'  => 'this is the second paragraph',
+    'footer'       => 'this is the footer',
 ];
 ?>
 <!DOCTYPE html>
@@ -22,11 +22,20 @@ $data = [
     <body>
         <?php
             require 'parser.php';
-            try {
+        
+            try
+            {
                 $html = new Parser('content.php', $data);
-                echo $html->render();
-            } catch (Exception $e) {
-                echo $e->getMessage();
+                
+                $output = $html->render();
+            }
+            catch (Exception $e)
+            {
+                $output = $e->getMessage();
+            }
+            finally
+            {
+                echo $output;
             }
         ?>
     </body>
